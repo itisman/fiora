@@ -26,7 +26,8 @@ async function loginFailback() {
             type: ActionTypes.SetGuest,
             payload: defaultGroup,
         });
-        const messages = await getDefalutGroupHistoryMessages(0);
+        // const messages = await getDefalutGroupHistoryMessages(0);
+        const messages = [];
         messages.forEach(convertMessage);
         dispatch({
             type: ActionTypes.AddLinkmanHistoryMessages,

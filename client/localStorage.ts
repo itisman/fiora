@@ -72,9 +72,9 @@ export default function getData() {
         theme,
         ...themeConfig,
         sound: getTextValue(LocalStorageKey.Sound, config.sound),
-        soundSwitch: getSwitchValue(LocalStorageKey.SoundSwitch),
-        notificationSwitch: getSwitchValue(LocalStorageKey.NotificationSwitch),
-        voiceSwitch: getSwitchValue(LocalStorageKey.VoiceSwitch),
+        soundSwitch: getSwitchValue(LocalStorageKey.SoundSwitch, false),
+        notificationSwitch: getSwitchValue(LocalStorageKey.NotificationSwitch, false),
+        voiceSwitch: getSwitchValue(LocalStorageKey.VoiceSwitch, false),
         selfVoiceSwitch: getSwitchValue(LocalStorageKey.SelfVoiceSwitch, false),
         tagColorMode: getTextValue(LocalStorageKey.TagColorMode, config.tagColorMode),
     };

@@ -125,10 +125,10 @@ class Message extends Component<MessageProps, MessageState> {
     }
 
     renderContent() {
-        const { type, content, loading, percent, originUsername } = this.props;
+        const { type, content, loading, percent, originUsername, time } = this.props;
         switch (type) {
             case 'text': {
-                return <TextMessage content={content} />;
+                return <TextMessage content={content} time={time}/>;
             }
             case 'image': {
                 return <ImageMessage src={content} loading={loading} percent={percent} />;

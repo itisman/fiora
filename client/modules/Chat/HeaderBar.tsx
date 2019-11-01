@@ -11,6 +11,7 @@ import Message from '../../components/Message';
 
 import Style from './HeaderBar.less';
 import useAero from '../../hooks/useAero';
+import socket from '../../socket';
 
 
 interface HeaderBarProps {
@@ -33,6 +34,14 @@ function HeaderBar(props: HeaderBarProps) {
 
     function handleShareGroup() {
         Message.success('已复制邀请信息到粘贴板, 去邀请其它人加群吧');
+    }
+
+    function logout() {
+        action.logout();
+        window.localStorage.removeItem('token');
+        Message.success('您已经退出登录');
+        socket.disconnect();
+        socket.connect();
     }
 
     return (
@@ -86,6 +95,14 @@ function HeaderBar(props: HeaderBarProps) {
                                 iconSize={24}
                                 onClick={onClickFunction}
                             />
+                            <IconButton
+                                width={40}
+                                height={40}
+                                icon="logout"
+                                iconSize={26}
+                                className={Style.logout}
+                                onClick={logout}
+                            />,
                         </div>
                     )
                     : <div className={Style.buttonContainer} />

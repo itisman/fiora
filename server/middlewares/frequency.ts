@@ -42,7 +42,8 @@ export default function frequency() {
             ctx.res = '接口调用频繁, 请稍后再试';
             return null;
         }
-        callTimes[socketId] = count + 1;
+
+        // callTimes[socketId] = count + 1;
         return next();
     };
 }

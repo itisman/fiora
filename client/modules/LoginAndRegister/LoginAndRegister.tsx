@@ -30,9 +30,9 @@ function LoginAndRegister() {
                 <TabPane tab="登录" key="login">
                     <Login />
                 </TabPane>
-                <TabPane tab="注册" key="register">
+                {/* <TabPane tab="注册" key="register">
                     <Register />
-                </TabPane>
+                </TabPane> */}
             </Tabs>
         </Dialog>
     );

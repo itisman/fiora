@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 import Style from './Message.less';
 import expressions from '../../../../utils/expressions';
@@ -6,6 +6,7 @@ import { transparentImage } from '../../../../utils/const';
 
 interface TextMessageProps {
     content: string;
+    time: string;
 }
 
 function TextMessage(props: TextMessageProps) {
@@ -23,12 +24,20 @@ function TextMessage(props: TextMessageProps) {
             }
             return r;
         });
+    let isNeedHide = (Date.now() - new Date(props.time).getTime()) > 60000;
+
+    const [forceShow, setForceShow] = useState(false);
+
+    const show = () => {
+        setForceShow(!forceShow);
+    }
 
     return (
         <div
-            className={Style.textMessage}
+            className={`${Style.textMessage} ${!forceShow && isNeedHide ? Style.hide : ''}`}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: content }}
+            onClick={show}
         />
     );
 }
